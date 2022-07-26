@@ -21,3 +21,10 @@ export const uploadProductsInDb = (dataFromExcel) => {
       .catch((err) => reject(err));
   });
 };
+export const getProductsFromDb = () => {
+  return new Promise((resolve, reject) => {
+      axios.get(`${BASE_URL}/api/getproducts`).then(res => {
+          resolve(res.data)
+      }).catch(err => reject(err))
+  })
+}

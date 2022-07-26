@@ -69,13 +69,13 @@ function Signup() {
 
           <br />
 
-          <img
+          {/* <img
             className="b"
             alt="Person's image"
             src={
               "https://clipart.com/thumbs.php?f=/697/batch_42/000697-0042-000446_tnb.png"
             }
-          />
+          /> */}
 
           <button
             onClick={onSignup}

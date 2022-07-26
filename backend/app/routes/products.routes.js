@@ -12,4 +12,6 @@ module.exports = function (app) {
 
   app.post("/api/createproduct", controller.createProduct);
   app.post("/api/uploadproducts", controller.uploadProduct);
+  app.get("/api/getproducts", controller.getProducts);
+
 };

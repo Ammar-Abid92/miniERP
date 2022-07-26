@@ -3,7 +3,6 @@ import { getProductsFromDb } from "../../db/product";
 
 
 export const getProducts = () => {
-    console.log("inside get products")
     var t0 = Date.now();
     return async (dispatch) => {
         return getProductsFromDb().then((res) => {
@@ -12,7 +11,7 @@ export const getProducts = () => {
         console.log('Products from Db', JSON.parse(JSON.stringify(res)));
         dispatch({
             type: PRODUCT.GET_PRODUCTS,
-            payload: res.Items
+            payload: res.data
             });
         });
     };

@@ -35,8 +35,8 @@ exports.createProduct = (req, res) => {
     })
 }
 exports.uploadProduct = (req, res) => {
-    
-    req.body.forEach(async (x) => {
+    console.log(req.body)
+    req.body.forEach((x) => {
 
         const { id, barcode, name, cost_price, quantity, sell_price } = x;
         const { Id, Barcode, Name, Cost_price, Quantity, Sell_price } = x;
@@ -54,16 +54,30 @@ exports.uploadProduct = (req, res) => {
                 remaining_quantity: quantity,
                 inventoryId: result.id
             }).then(() => {
-                res.status(201).write({
+                res.status(201).json({
                     message: "Data added successfully",
                     data: req.body,
                 });
             }).catch(e => {
                 res.write(e.message)
+                res.end()
             })
         }).catch(e => {
             res.write(e.message)
+            res.end()
         })
     })
 
+}
+exports.getProducts = (req, res) => {
+    Product.findAll()
+    .then(data=>{
+        res.status(201).json({
+            message: "Data added successfully",
+            data: data,
+        })
+    }).catch(e => {
+        res.write(e.message)
+        res.end()
+    })
 }

@@ -32,24 +32,19 @@ const OrderTable = () => {
 
  },[eachOrderData])
 
-
- useEffect(() => {
-}, []);
-
-
   let totalPrice = [];
 
   const takeTotalPriceValue = () => {
     let price = 0;
     let productsPrice = productArr?.forEach((product) => {
-      price += product?.price * product?.quantity;
+      price += product?.sell_price * product?.quantity;
     });
     return price;
   };
   const orderlineTotal = (each) => {
       let price = 0;
       let prod = each
-      price += prod?.price * prod?.quantity;
+      price += prod?.sell_price * prod?.quantity;
     return price;
   };
 

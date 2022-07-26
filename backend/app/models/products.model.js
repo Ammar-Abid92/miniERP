@@ -4,7 +4,7 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING
       },
       barcode: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       cost_price: {
         type: Sequelize.INTEGER,
