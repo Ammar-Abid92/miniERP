@@ -4,7 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Importfromfile from "./excel_import/_importfromfile";
 import "./productsinventory.css";
 import { useState } from "react";
-import { createProductInDb } from "../../../db/product";
+
+
 import {motion} from 'framer-motion'
 import { createProductInDb, deleteProductFromDb } from "../../../db/product";
 const Productsinventory = () => {
