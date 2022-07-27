@@ -4,25 +4,32 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Importfromfile from "./excel_import/_importfromfile";
 import "./productsinventory.css";
 import { useState } from "react";
-import { createProductInDb } from "../../../db/product";
+import { createProductInDb, deleteProductFromDb } from "../../../db/product";
 const Productsinventory = () => {
-  const [id, setId] = useState("");
+  const [id, setId] = useState();
   const [barcode, setBarcode] = useState("");
   const [name, setName] = useState("");
   const [costPrice, setCostPrice] = useState(0);
   const [sellPrice, setSellPrice] = useState();
   const [quantity, setQuantity] = useState(0);
+  const [delId, setDelId] = useState("");
 
-  function onCreateProduct() {
-    createProductInDb(id, barcode, name, costPrice, sellPrice, quantity).then(
-      (res) => {
-        if (res === true) {
-          alert("Product has been created");
-        } else {
-          alert("error in product creation");
-        }
-      }
+
+  function onCreateProduct(e) {
+    e.preventDefault()
+    createProductInDb({id, barcode, name, costPrice, sellPrice, quantity}).then(res=>{
+      alert(res.message)
+    }
     );
+  }
+  function onDeleteProduct(e, delId){
+    e.preventDefault()
+    deleteProductFromDb({delId}).then(res=>{
+      console.log(res.message)
+      alert(res.message)
+    }
+    );
+
   }
 
   return (
@@ -64,7 +71,7 @@ const Productsinventory = () => {
           variant="primary"
           type="submit"
           style={{ marginTop: "50px", marginLeft: "130px" }}
-          onClick={onCreateProduct}
+          onClick={(e)=>onCreateProduct(e)}
         >
           CREATE PRODUCT
         </Button>
@@ -79,12 +86,14 @@ const Productsinventory = () => {
           }}
         >
           <Form.Label>enter id of the product you want to delete</Form.Label>
-          <Form.Control />
+          <Form.Control onChange={(e) => setDelId(e.target.value)} />
 
           <Button
             variant="primary"
             type="submit"
             style={{ marginTop: "50px", marginLeft: "150px" }}
+            onClick={(e)=>onDeleteProduct(e, delId)}
+
           >
             DELETE PRODUCT
           </Button>

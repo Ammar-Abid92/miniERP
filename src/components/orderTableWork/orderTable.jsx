@@ -66,7 +66,6 @@ const OrderTable = () => {
   const deleteProd = (item, index) => {
     console.log("ITEEEE---->", item)
     if (item.quantity > 1){
-      console.log("XXXXXXXXX--->", item)
       dispatch(decreaseQty(item.id))
       setProductArr(productArr)
     }else{

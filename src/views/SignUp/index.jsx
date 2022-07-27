@@ -13,7 +13,7 @@ function Signup() {
   const navigate = useNavigate();
 
   const onSignup = () => {
-    if (ValidateEmail(email) === true && ValidateRole(role) === true) {
+    if (ValidateEmail(email) === true && ValidateRole(role[0]) === true) {
       signUp({ username, email, password, role }).then((res) => {
         if (res === true) {
           navigate("/login");
@@ -33,6 +33,7 @@ function Signup() {
     return false;
   }
   function ValidateRole(x) {
+    console.log(x)
     if (x === "admin" || x === "cashier" || x === "Admin" || x === "Cashier") {
       setRole([role]);
       return true;

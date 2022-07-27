@@ -32,6 +32,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome" });
 });
 
+
 // routes
 require("./app/routes/auth.routes")(app);
 require("./app/routes/user.routes")(app);
