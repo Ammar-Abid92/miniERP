@@ -23,7 +23,7 @@ function PaymentScreen() {
   const [cardTypeUrl, setCardTypeUrl] = useState('https://logos-world.net/wp-content/uploads/2020/04/Visa-Logo.png');
   // const [flip, setFlip] = useState(null);
   
-  const eachOrderData = useSelector((state) => console.log("PPPPPP---->",state));
+  const eachOrderData = useSelector((state) => state.pos_order.pos_order[0]);
   
 
   const handleNum = (e) => {

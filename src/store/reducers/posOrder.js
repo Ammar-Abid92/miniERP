@@ -8,7 +8,7 @@ export var posOrderRed = (state = initialState.pos_order, action) => {
     switch (action.type) {
       case POS_ORDER.ALL_ORDERS:
         console.log("INSIDE POS ORDER---->",state)
-        return { ...state, ["pos_order"]: [action.payload] };
+        return { ...state, ["pos_order"]: action.payload };
   
       default:
         return state;
