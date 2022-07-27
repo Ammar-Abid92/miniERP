@@ -1,11 +1,11 @@
-import OrderReducer from "../store/reducers/eachOrder";
 import allOrdersReducer from "./reducers/allOrdersReduser";
 import { productReducer } from "./reducers/product";
 import { combineReducers } from "redux";
+import { cartReducer } from "./reducers/cart";
 
 export default combineReducers({
   products: productReducer,
-  order:OrderReducer,
+  cart: cartReducer,
   allOrders: allOrdersReducer
   
 

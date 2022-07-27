@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setOrder } from "../../../../src/store/actions/eachOrderAction.js";
 import "../../../../src/components/searchBarWork/searchBar.css";
-import { Button, Typography , Stack, TextField} from "@mui/material";
-import axios from 'axios';
+import { TextField} from "@mui/material";
 import {getProducts} from "../../../../src/store/actions/product"
-import { getProductsFromDb } from "../../../db/product";
-import { SignalCellularNoSimOutlined } from "@mui/icons-material";
 import './stockreportdata.css'
-import ReactDOM from "react-dom";
 
 import ReactHTMLTableToExcel from "react-html-table-to-excel";
+import { addItem } from "../../../store/actions/cart.js";
 
 const Stockreportdata = () => {
   const dispatch = useDispatch();
@@ -44,7 +40,7 @@ useEffect(() => {
   };
 
   const SetOrderToStore = (item) => {
-    dispatch(setOrder(item)) 
+    dispatch(addItem(item)) 
 
   };
 
@@ -53,8 +49,6 @@ useEffect(() => {
       return null;
     }
     return (
-
-    
       
       <div style={{marginLeft:"-2px",display:'flex', flexDirection:'row', flexWrap:"wrap"}} >
       <ReactHTMLTableToExcel

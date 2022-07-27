@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setOrder } from "../../store/actions/eachOrderAction";
 import "./searchBar.css";
 import { Button, Typography , Stack, TextField} from "@mui/material";
-import axios from 'axios';
 import {getProducts} from "../../../src/store/actions/product"
-import { getProductsFromDb } from "../../db/product";
-import { SignalCellularNoSimOutlined } from "@mui/icons-material";
+import { addItem, increaseQty } from "../../store/actions/cart";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
 
   const allProduct = useSelector((state) => state.products);
+  const cart = useSelector((state) => state.cart?.ord);
 
   const [suggestions, setSuggestions] = useState(allProduct?.productsData);
   const [productTitle, setProductTitle] = useState("");
@@ -39,9 +37,18 @@ useEffect(() => {
     setProductTitle(value);
   };
 
-  const SetOrderToStore = (item) => {
-    dispatch(setOrder(item)) 
-
+  const selectedProduct = (selectedProd) => {
+    console.log(selectedProd)
+    if (checkIfItemExistsInCart(selectedProd) < 1){
+    dispatch(addItem(selectedProd))
+    }else{
+      dispatch(increaseQty(selectedProd.id))
+    }
+  };
+  const checkIfItemExistsInCart = (y) => {
+    const item = cart?.find((x) => x.id === y.id);
+    if (item) return item.quantity;
+    else return false;
   };
 
   const renderSuggestions = () => {
@@ -52,7 +59,7 @@ useEffect(() => {
       <div style={{marginLeft:"-2px",display:'flex', flexDirection:'row', flexWrap:"wrap"}} >
         {suggestions?.map((item, index) => (
           <div  key={item.id}>
-            <Button sx={{ width:"180px", margin:'6px', height:'100px'}}  variant="contained" color="info" size="small"  onClick={() => SetOrderToStore(item)}> {item.name} <br/> { `(Quant.) ${item.quantity} (Price) ${item.sell_price}` }
+            <Button sx={{ width:"180px", margin:'6px', height:'100px'}}  variant="contained" color="info" size="small"  onClick={() => selectedProduct(item, item.quantity=1)}> {item.name} <br/> { `(Quant.) ${item.quantity} (Price) ${item.sell_price}` }
             </Button>
           </div>
          
