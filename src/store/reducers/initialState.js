@@ -4,7 +4,7 @@ const initialState = {
   allOrders:[],
   productsData: [],
   total:0,
-  pos_order:[]
+  pos_order:{}
 
 };
 

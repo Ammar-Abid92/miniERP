@@ -6,9 +6,7 @@ const allOrdersReducer = (state = initialState.allOrders, action) => {
     console.log("Hi--->", Object.keys(state).length)
 
   switch (action.type) {
-
     case TYPES.ALL_ORDERS:
-
       return {
         ...state,
         allOrders: [...state.allOrders, action.payload]
