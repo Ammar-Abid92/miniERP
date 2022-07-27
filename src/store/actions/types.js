@@ -33,4 +33,8 @@ export const CART = {
   REMOVE_CART: "REMOVE_CART",
 };
 
+export const POS_ORDER = {
+  ALL_ORDERS: "ALL_ORDERS"
+}
+
 

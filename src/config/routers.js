@@ -5,6 +5,8 @@ import SignIn from "../views/SignIn";
 import SignUp from "../views/SignUp";
 import Inventory from "../views/Inventory";
 import PaymentScreen from "../views/paymentScreen/paymentScreen";
+import PaymentMethod from "../views/paymentMethod";
+import PaymentUsingCrypto from "../views/PaymentUsingCrypto";
 const Navigator = () => {
   return (
     <BrowserRouter>
@@ -15,7 +17,9 @@ const Navigator = () => {
         <Route path="/posScreen" element={<POS />} />
         <Route path="/managerSelector" element={<ManageSelector />} />
         <Route path="/inventory" element={<Inventory />} />
-        <Route path="/posScreen/payment" element={<PaymentScreen />} />
+        <Route path="/posScreen/paymentMethod" element={<PaymentMethod />} />
+        <Route path="/posScreen/paymentMethod/payment" element={<PaymentScreen />} />
+        <Route path="/posScreen/paymentMethod/crypto" element={<PaymentUsingCrypto />} />
 
       </Routes>
     </BrowserRouter>

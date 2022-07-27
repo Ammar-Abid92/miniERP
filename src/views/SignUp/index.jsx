@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { register } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
-import "./index7.css";
+import "./index.css";
 import { signUp } from "../../db/signup";
 import {motion} from 'framer-motion'
 
@@ -71,13 +71,13 @@ function Signup() {
 
           <br />
 
-          {/* <img
+          <img
             className="b"
             alt="Person's image"
             src={
               "https://clipart.com/thumbs.php?f=/697/batch_42/000697-0042-000446_tnb.png"
             }
-          /> */}
+          /> 
 
           <motion.button whileHover={{ scale:1.3 ,boxShadow: "10px 10px 0 gray"}}
             onClick={onSignup}
