@@ -63,7 +63,7 @@ function Importfromfile() {
 
       {/* upload file section */}
       <div className='form'>
-        <form className='form-group' autoComplete="off"
+        <form className='form-group' 
           onSubmit={handleSubmit}>
           <label><h5>Upload Excel file</h5></label>
           <br></br>

@@ -99,6 +99,7 @@ const Productsinventory = () => {
           <Form.Control onChange={(e) => setDelId(e.target.value)} />
 
          <motion.button
+         onClick={(e)=>onDeleteProduct(e, delId)}
         whileHover={{ scale:1.3 ,boxShadow: "10px 10px 0 gray"}}
           
           type="submit"
@@ -110,7 +111,8 @@ const Productsinventory = () => {
           
         >
           <p style={{color:"white"}}>DELETE PRODUCT</p>
-           onClick={(e)=>onDeleteProduct(e, delId)}
+           
+           
           
         </motion.button>
         </Form.Group>

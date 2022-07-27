@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { useDispatch } from "react-redux";
 import {motion} from 'framer-motion'
-import "./index6.css";
+import './index68.css'
 import { signIn } from "../../db/signin";
 // import addUser from "../../Store/actions";
 
@@ -77,7 +77,7 @@ function SignIn() {
               height: "30px",
               position: "absolute",
               left: "755px",
-              top: "576px",
+              top: "516px",
               backgroundColor: "green",
             }}
           >

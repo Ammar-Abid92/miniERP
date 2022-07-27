@@ -16,7 +16,7 @@ import './printer.css'
       </Form.Group>
 
       <Form.Group className="f3">
-        <Form.Label>PRINTER API</Form.Label>
+        <Form.Label>PRINTER IP</Form.Label>
         <Form.Control type="text"  />
       </Form.Group>
       

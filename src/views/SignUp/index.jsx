@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { register } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
-import "./index7.css";
+import "./index77.css";
 import { signUp } from "../../db/signup";
 import {motion} from 'framer-motion'
 
@@ -46,30 +46,34 @@ function Signup() {
   return (
     <div>
       <div className="signup">
-        <div className="column">
-          <h1 className="a">Sign Up Please...</h1>
+          <h1 className="a">Sign Up Please.........</h1>
+          
           <input
-            style={{ position: "absolute", top: "141px" }}
+            style={{ position: "absolute", top: "281px" }}
             onChange={(e) => setUserName(e.target.value)}
             placeholder="Write username here"
           />
           <input
-            style={{ marginTop: "5px" }}
+            style={{  position: "absolute", top: "331px"}}
             type={"email"}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Write email here"
           />
           <input
+          style={{  position: "absolute", top: "381px"}}
             type="password"
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Write password here"
           />
           <input
+          style={{  position: "absolute", top: "431px"}}
             onChange={(e) => setRole(e.target.value)}
             placeholder="Manager Or Cashier"
           />
+        
 
           <br />
+          
 
           {/* <img
             className="b"
@@ -85,8 +89,8 @@ function Signup() {
               width: "90px",
               height: "40px",
               position: "absolute",
-              left: "745px",
-              top: "449px",
+              left: "760px",
+              top: "519px",
               backgroundColor: "green",
             }}
           >
@@ -94,12 +98,12 @@ function Signup() {
               <b>Register</b>
             </p>
           </motion.button>
-          <p onClick={() => navigate("/login")} className="d">
+          <motion.p whileHover={{ scale: 1.1 }}  onClick={() => navigate("/login")} className="d">
             <b>Already registered? Login here!</b>
-          </p>
+          </motion.p>
         </div>
       </div>
-    </div>
+    
   );
 }
 

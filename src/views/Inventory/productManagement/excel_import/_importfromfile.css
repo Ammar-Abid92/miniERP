@@ -2,7 +2,18 @@
 {
     height:100px;
 }
-form-group
+.form
 {
-    height:300px;
+    height:200px;
+}
+
+.form-group{
+    height:200px;
+}
+
+.table-responsive
+{
+    position:absolute;
+    top:50px;
+    right: 100px;
 }
