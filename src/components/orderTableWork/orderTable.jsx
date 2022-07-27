@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import { allOrdersAction } from "../../store/actions/allOrdersActions";
 import initialState from "../../store/reducers/initialState";
+import {motion} from 'framer-motion'
 
 
 const OrderTable = () => {
@@ -206,7 +207,9 @@ const OrderTable = () => {
               Rs. {takeTotalPriceValue()}
             </Typography>
             <div>
-              <Button
+              <motion.Button whileHover={{ scale: 1.2 }}
+  
+  
                 style={{ marginLeft: "20%" }}
                 onClick={handleProceed}
                 variant="contained"
@@ -218,7 +221,7 @@ const OrderTable = () => {
                 disabled={productArr?.length > 0 ? false : true}
               >
                 PROCEED
-              </Button>
+              </motion.Button>
             </div>
           </div>
         </CardContent>

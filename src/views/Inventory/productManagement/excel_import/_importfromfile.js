@@ -3,6 +3,7 @@ import {Data} from './data'
 import * as XLSX from 'xlsx'
 import './_importfromfile.css'
 import { uploadProductsInDb } from '../../../../db/product';
+import {motion} from 'framer-motion'
 
 function Importfromfile() {
   
@@ -66,8 +67,20 @@ function Importfromfile() {
             onChange={handleFile} required></input>
           {excelFileError && <div className='text-danger'
             style={{ marginTop: 5 + 'px' }}>{excelFileError}</div>}
-          <button type='submit' className='btn btn-success'
-            style={{ marginTop: 5 + 'px' }}>Submit</button>
+          <motion.button className="btn-btn-success"
+        whileHover={{ scale:1.3,boxShadow: "10px 10px 0 gray" }}
+          
+          type="submit"
+          style={{ width: "150px",
+          height: "30px",
+          marginTop:"40px" ,marginLeft:"120px",
+          
+          backgroundColor: "blue" }}
+        
+        >
+          <p style={{color:"white"}}>SUBMIT</p>
+          
+        </motion.button>
   
         </form>
       </div>

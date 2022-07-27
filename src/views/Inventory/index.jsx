@@ -3,6 +3,7 @@ import Navbar from "../../components/navbar/Navbar";
 import Productsinventory from "./productManagement/productsinventory";
 import Stockreport from "./reportsManagement/stockreport";
 import Printer from "./printerManagement/printer";
+import {motion} from 'framer-motion'
 
 import { Button, Typography, Stack, TextField } from "@mui/material";
 import { useState } from "react";
@@ -42,27 +43,34 @@ const Inventory = () => {
           { label: "Managing Screen", href: "/managerSelector" },
         ]}
       />
-      <h1 
-      className="inventorymanagement"> INVENTORY MANAGEMENT 
-      </h1>
+      <motion.h1 initial={{  }}
+          animate={{ x: "10%" }}
+          transition={{ duration: 4, loop: Infinity }}
+      className="inventorymanagement" style={{position:"absolute",top:"-3px"}}> INVENTORY MANAGEMENT 
+      </motion.h1>
 
       <div 
       style={{width: "1150px",
         position: "absolute",
+        top:"130px",
          height: "270px",
           left: "300px"}}
       >
 
 
-        <Button sx={{ width: "180px", margin: '6px', height: '100px', border: "2px solid black", position: "absolute", left: "200px" }} variant="contained" color="info" size="small" onClick={(e)=>changingState(e.target.innerText)} > PRODUCTS
+        <Button
+        sx={{ width: "180px", margin: '6px', height: '100px', border: "2px solid black", position: "absolute", left: "200px" }} variant="contained" color="info" size="small" onClick={(e)=>changingState(e.target.innerText)} > PRODUCTS
+        
         </Button>
 
 
-        <Button sx={{ width: "180px", margin: '6px', height: '100px', border: "2px solid black", position: "absolute", left: "400px" }} variant="contained" color="info" size="small" onClick={(e)=>changingState(e.target.innerText)} > STOCK REPORT
+        <Button 
+        sx={{ width: "180px", margin: '6px', height: '100px', border: "2px solid black", position: "absolute", left: "400px" }} variant="contained" color="info" size="small" onClick={(e)=>changingState(e.target.innerText)} > STOCK REPORT
         </Button>
 
 
-        <Button sx={{ width: "180px", margin: '6px', height: '100px', border: "2px solid black", position: "absolute", left: "600px" }} variant="contained" color="info" size="small" onClick={(e)=>changingState(e.target.innerText)} >  PRINTER
+        <Button 
+        sx={{ width: "180px", margin: '6px', height: '100px', border: "2px solid black", position: "absolute", left: "600px" }} variant="contained" color="info" size="small" onClick={(e)=>changingState(e.target.innerText)} >  PRINTER
         </Button>
 
       </div>

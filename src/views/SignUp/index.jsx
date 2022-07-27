@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { register } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
-import "./index.css";
+import "./index7.css";
 import { signUp } from "../../db/signup";
+import {motion} from 'framer-motion'
 
 function Signup() {
   const [username, setUserName] = useState("");
@@ -77,7 +78,7 @@ function Signup() {
             }
           /> */}
 
-          <button
+          <motion.button whileHover={{ scale:1.3 ,boxShadow: "10px 10px 0 gray"}}
             onClick={onSignup}
             style={{
               width: "90px",
@@ -91,7 +92,7 @@ function Signup() {
             <p style={{ fontsize: "700px", color: "white" }}>
               <b>Register</b>
             </p>
-          </button>
+          </motion.button>
           <p onClick={() => navigate("/login")} className="d">
             <b>Already registered? Login here!</b>
           </p>

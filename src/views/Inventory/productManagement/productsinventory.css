@@ -1,7 +1,13 @@
+
 body
 {
     background-color: purple;
+    
+    
 }
+
+
+
 .importfrom
 {
     width:700px;
@@ -21,6 +27,7 @@ body
     left:20px;
     top:260px;
     height:550px;
+    
 }
 
 .deleteproduct{

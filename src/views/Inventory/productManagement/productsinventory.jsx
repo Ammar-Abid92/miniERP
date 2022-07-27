@@ -5,6 +5,7 @@ import Importfromfile from "./excel_import/_importfromfile";
 import "./productsinventory.css";
 import { useState } from "react";
 import { createProductInDb } from "../../../db/product";
+import {motion} from 'framer-motion'
 const Productsinventory = () => {
   const [id, setId] = useState("");
   const [barcode, setBarcode] = useState("");
@@ -12,6 +13,7 @@ const Productsinventory = () => {
   const [costPrice, setCostPrice] = useState(0);
   const [sellPrice, setSellPrice] = useState();
   const [quantity, setQuantity] = useState(0);
+  
 
   function onCreateProduct() {
     createProductInDb(id, barcode, name, costPrice, sellPrice, quantity).then(
@@ -60,14 +62,20 @@ const Productsinventory = () => {
           <Form.Control onChange={(e) => setSellPrice(e.target.value)} />
         </Form.Group>
 
-        <Button
-          variant="primary"
+        <motion.button
+        whileHover={{ scale:1.3 ,boxShadow: "10px 10px 0 gray"}}
+          
           type="submit"
-          style={{ marginTop: "50px", marginLeft: "130px" }}
+          style={{ width: "150px",
+          height: "30px",
+          marginTop:"40px" ,marginLeft:"120px",
+          
+          backgroundColor: "blue" }}
           onClick={onCreateProduct}
         >
-          CREATE PRODUCT
-        </Button>
+          <p style={{color:"white"}}>CREATE PRODUCT</p>
+          
+        </motion.button>
       </Form>
 
       <Form className="deleteproduct">
@@ -81,13 +89,20 @@ const Productsinventory = () => {
           <Form.Label>enter id of the product you want to delete</Form.Label>
           <Form.Control />
 
-          <Button
-            variant="primary"
-            type="submit"
-            style={{ marginTop: "50px", marginLeft: "150px" }}
-          >
-            DELETE PRODUCT
-          </Button>
+         <motion.button
+        whileHover={{ scale:1.3 ,boxShadow: "10px 10px 0 gray"}}
+          
+          type="submit"
+          style={{ width: "150px",
+          height: "30px",
+          marginTop:"40px" ,marginLeft:"120px",
+          
+          backgroundColor: "blue" }}
+          
+        >
+          <p style={{color:"white"}}>DELETE PRODUCT</p>
+          
+        </motion.button>
         </Form.Group>
       </Form>
       <div className="importfrom">

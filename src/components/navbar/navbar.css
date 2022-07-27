@@ -2,6 +2,15 @@
   background-color: rgb(206, 216, 216);
   display: flex;
   padding: 8px;
+  animation-name: example;
+  animation-duration: 5s;
+  animation-iteration-count:infinite;
+}
+@keyframes example {
+  
+  25%  {background-color: yellow;}
+  50%  {background-color:aqua;}
+  
 }
 
 .nav_buttons {

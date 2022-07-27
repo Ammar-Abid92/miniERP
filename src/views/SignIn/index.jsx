@@ -3,7 +3,8 @@ import { login } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { useDispatch } from "react-redux";
-import "./index.css";
+import {motion} from 'framer-motion'
+import "./index6.css";
 import { signIn } from "../../db/signin";
 // import addUser from "../../Store/actions";
 
@@ -25,7 +26,7 @@ function SignIn() {
 
   return (
     <div>
-      <div className="signin">
+      <div className="signin"> 
         <div className="column">
           {/* <img
             className="i3"
@@ -66,7 +67,8 @@ function SignIn() {
           {/* <Button  onClick={onSignin} style={{backgroundColor:""}}>
               <p style={{width:"90px",height:"40px",position:"absolute",left:"740px",top:"406px",backgroundColor:"lightgray"}}><b>LOGIN</b> </p>
             </Button> */}
-          <button
+          <motion.button
+          whileHover={{ scale: 1.2,boxShadow: "10px 10px 0 gray" }}
             onClick={onSignin}
             style={{
               width: "90px",
@@ -80,7 +82,7 @@ function SignIn() {
             <p style={{ fontsize: "700px", color: "white" }}>
               <b>LOGIN</b>
             </p>
-          </button>
+          </motion.button>
 
           <img
             className="i"
@@ -119,12 +121,14 @@ function SignIn() {
             {" "}
             New user? Register here{" "}
           </p> */}
-          <p onClick={() => navigate("/register")} className="p">
+          <motion.p whileHover={{ scale: 1.1 }}
+          onClick={() => navigate("/register")} className="p">
             <b>New user? Register here</b>
-          </p>
+          </motion.p>
         </div>
       </div>
-    </div>
+      </div>
+   
   );
 }
 
