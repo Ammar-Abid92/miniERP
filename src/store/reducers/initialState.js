@@ -3,7 +3,8 @@ const initialState = {
   cart: {},
   allOrders:[],
   productsData: [],
-  total:0
+  total:0,
+  pos_order:[]
 
 };
 

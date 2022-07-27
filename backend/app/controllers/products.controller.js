@@ -22,20 +22,25 @@ exports.createProduct = (req, res) => {
             inventoryId: result.id
         }).then(() => {
             res.status(201).send({
-                message: "Data added successfully",
+                message: "Product added successfully",
                 data: req.body,
             });
         }).catch(e => {
-            res.write(e.message)
-            res.end()
+            res.send({
+                message: "Error in creating product",
+                data: req.body,
+            });
+            return
         })
     }).catch(e => {
-        res.write(e.message)
-        res.end()
+        res.send({
+            message: "Error in creating product",
+            data: req.body,
+        });
+        return
     })
 }
 exports.uploadProduct = (req, res) => {
-    console.log(req.body)
     req.body.forEach((x) => {
 
         const { id, barcode, name, cost_price, quantity, sell_price } = x;
@@ -59,40 +64,54 @@ exports.uploadProduct = (req, res) => {
                     data: req.body,
                 });
             }).catch(e => {
-                res.write(e.message)
+                res.send({
+                    message: "Error in uploading products",
+                    data: req.body,
+                });
+                
             })
         }).catch(e => {
-            res.write(e.message)
+            res.send({
+                message: "Error in uploading products",
+                data: req.body,
+            });
+            
         })
     })
-res.end()
 }
 exports.getProducts = (req, res) => {
     Product.findAll()
-    .then(data=>{
-        res.status(201).json({
-            message: "Data added successfully",
-            data: data,
+        .then(data => {
+            res.status(201).json({
+                message: "Data got successfully",
+                data: data,
+            })
+        }).catch(e => {
+            res.send({
+                message: "Error ",
+                data: req.body,
+            });
         })
-    }).catch(e => {
-        res.write(e.message)
-        res.end()
-    })
 }
 
 exports.deleteProduct = async (req, res) => {
     console.log(req.body)
-    const row = await Product.findOne({
+    const productRow = await Product.findOne({
         where: { id: req.body.delId },
-      });
-      if (row) {
-        await row.destroy(); // deletes the row
+    });
+    const inventoryRow = await Inventory.findOne({
+        where: { id: req.body.delId },
+    });
+    if (productRow && inventoryRow) {
+        await productRow.destroy(); // deletes the row
+        await inventoryRow.destroy(); // deletes the row
+
         res.status(200).json({
             message: "Product deleted successfully",
             data: row,
         })
-      }else{
-        res.json({data:"No Product Found"})
-      }
-    
+    } else {
+        res.json({ message: "No Product Found" })
+    }
+
 }

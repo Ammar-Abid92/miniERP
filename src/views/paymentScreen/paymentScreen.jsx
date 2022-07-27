@@ -3,6 +3,7 @@ import Cleave from 'cleave.js/react';
 
 // import 'animate.css';
 import './paymentScreen.css';
+import { useSelector } from 'react-redux';
 
 const imageUrls = [
   "https://logos-world.net/wp-content/uploads/2020/04/Visa-Logo.png",
@@ -22,6 +23,9 @@ function PaymentScreen() {
   const [cardTypeUrl, setCardTypeUrl] = useState('https://logos-world.net/wp-content/uploads/2020/04/Visa-Logo.png');
   // const [flip, setFlip] = useState(null);
   
+  const eachOrderData = useSelector((state) => console.log("PPPPPP---->",state));
+  
+
   const handleNum = (e) => {
     setCreditCardNum(e.target.rawValue);
     // console.log(e.target.value);

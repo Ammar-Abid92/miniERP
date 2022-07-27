@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom";
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import { allOrdersAction } from "../../store/actions/allOrdersActions";
+import { posOrder } from "../../store/actions/posOrder";
 import initialState from "../../store/reducers/initialState";
 import {motion} from 'framer-motion'
 import { decreaseQty, deleteItem } from "../../store/actions/cart";
@@ -24,7 +25,6 @@ const OrderTable = () => {
   const dispatch = useDispatch();
 
   const [productArr, setProductArr] = useState([]);
-  const eee = useSelector((state) => console.log("LALALAL--->",state.cart.ord));
 
   const eachOrderData = useSelector((state) => state.cart.ord);
   const allOrdersData = useSelector((state) => state.allOrders.allOrders);
@@ -54,15 +54,16 @@ const OrderTable = () => {
   };
 
   const handleProceed = () => {
-    const order = [
+    const pos_order = [
       {
         orderID: productArr[productArr.length - 1].id + 1,
         orderLines: productArr,
         totalPrice: takeTotalPriceValue(),
       },
     ];
-    navigate("/posScreen/payment")
-    console.log("Proceeded----->", order);
+    dispatch(posOrder(pos_order))
+    navigate("/posScreen/paymentMethod")
+    console.log("Proceeded----->", pos_order);
   };
   const deleteProd = (item, index) => {
     console.log("ITEEEE---->", item)
