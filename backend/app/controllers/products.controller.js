@@ -7,7 +7,7 @@ const Op = db.Sequelize.Op;
 
 
 exports.createProduct = (req, res) => {
-
+    console.log(req.body)
     Inventory.create({
         product_id: req.body.id || req.body.Id,
     }).then(result => {
@@ -15,8 +15,8 @@ exports.createProduct = (req, res) => {
             id: result.product_id,
             barcode: req.body.barcode || req.body.Barcode,
             name: req.body.name || req.body.Name,
-            cost_price: req.body.cost_price || req.body.Cost_price,
-            sell_price: req.body.sell_price || req.body.Sell_price,
+            cost_price: req.body.costPrice || req.body.CostPrice,
+            sell_price: req.body.sellPrice || req.body.SellPrice,
             quantity: req.body.quantity,
             remaining_quantity: req.body.quantity,
             inventoryId: result.id
@@ -54,20 +54,18 @@ exports.uploadProduct = (req, res) => {
                 remaining_quantity: quantity,
                 inventoryId: result.id
             }).then(() => {
-                res.status(201).json({
+                res.send({
                     message: "Data added successfully",
                     data: req.body,
                 });
             }).catch(e => {
                 res.write(e.message)
-                res.end()
             })
         }).catch(e => {
             res.write(e.message)
-            res.end()
         })
     })
-
+res.end()
 }
 exports.getProducts = (req, res) => {
     Product.findAll()
@@ -80,4 +78,21 @@ exports.getProducts = (req, res) => {
         res.write(e.message)
         res.end()
     })
+}
+
+exports.deleteProduct = async (req, res) => {
+    console.log(req.body)
+    const row = await Product.findOne({
+        where: { id: req.body.delId },
+      });
+      if (row) {
+        await row.destroy(); // deletes the row
+        res.status(200).json({
+            message: "Product deleted successfully",
+            data: row,
+        })
+      }else{
+        res.json({data:"No Product Found"})
+      }
+    
 }

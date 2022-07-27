@@ -15,9 +15,11 @@ function SignIn() {
   const navigate = useNavigate();
 
   const onSignin = () => {
-    signIn(username, password).then((res) => {
-      if (res.role[0] === "Admin" || res.role[0] === "admin") {
+    signIn({username, password}).then((res) => {
+      console.log("AMAAAAAA====>",res.data.roles[0])
+      if (res.data.roles[0] === "Admin" || res.data.roles[0] === "admin") {
         navigate("/managerSelector");
+
       } else {
         navigate("/posScreen");
       }

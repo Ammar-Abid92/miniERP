@@ -6,7 +6,7 @@ export const createProductInDb = (data) => {
     axios
       .post(`${BASE_URL}/api/createproduct`, data)
       .then((res) => {
-        resolve(true);
+        resolve(res.data);
       })
       .catch((err) => reject(err));
   });
@@ -16,7 +16,8 @@ export const uploadProductsInDb = (dataFromExcel) => {
     axios
       .post(`${BASE_URL}/api/uploadproducts`, dataFromExcel)
       .then((res) => {
-        resolve(res);
+        console.log(res)
+        resolve(res.data);
       })
       .catch((err) => reject(err));
   });
@@ -24,6 +25,13 @@ export const uploadProductsInDb = (dataFromExcel) => {
 export const getProductsFromDb = () => {
   return new Promise((resolve, reject) => {
       axios.get(`${BASE_URL}/api/getproducts`).then(res => {
+          resolve(res.data)
+      }).catch(err => reject(err))
+  })
+}
+export const deleteProductFromDb = (id) => {
+  return new Promise((resolve, reject) => {
+      axios.post(`${BASE_URL}/api/deleteproduct`, id).then(res => {
           resolve(res.data)
       }).catch(err => reject(err))
   })

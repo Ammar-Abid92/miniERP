@@ -16,6 +16,7 @@ import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import { allOrdersAction } from "../../store/actions/allOrdersActions";
 import initialState from "../../store/reducers/initialState";
 import {motion} from 'framer-motion'
+import { decreaseQty, deleteItem } from "../../store/actions/cart";
 
 
 const OrderTable = () => {
@@ -23,8 +24,9 @@ const OrderTable = () => {
   const dispatch = useDispatch();
 
   const [productArr, setProductArr] = useState([]);
+  const eee = useSelector((state) => console.log("LALALAL--->",state.cart.ord));
 
-  const eachOrderData = useSelector((state) => state.order.cartItems);
+  const eachOrderData = useSelector((state) => state.cart.ord);
   const allOrdersData = useSelector((state) => state.allOrders.allOrders);
 
   useEffect(() => {
@@ -32,6 +34,8 @@ const OrderTable = () => {
     dispatch(allOrdersAction(eachOrderData))
 
  },[eachOrderData])
+
+ console.log("CART ITEMS---->", productArr)
 
   let totalPrice = [];
 
@@ -54,18 +58,22 @@ const OrderTable = () => {
       {
         orderID: productArr[productArr.length - 1].id + 1,
         orderLines: productArr,
-        totalPrice: totalPrice,
+        totalPrice: takeTotalPriceValue(),
       },
     ];
     navigate("/posScreen/payment")
     console.log("Proceeded----->", order);
   };
-  const deleteProd = (single) => {
-    productArr.splice(single, 1)
-
-    console.log("kkkkkkkk---->", eachOrderData)
-    setProductArr(productArr.filter((selected) => selected !== single))
-    console.log(single)
+  const deleteProd = (item, index) => {
+    console.log("ITEEEE---->", item)
+    if (item.quantity > 1){
+      dispatch(decreaseQty(item.id))
+      setProductArr(productArr)
+    }else{
+      dispatch(deleteItem(item.id));
+      productArr.splice(index, 1)
+      setProductArr(productArr.filter((selected) => selected.id !== item.id))
+    }
   }
 
   return (
@@ -174,7 +182,7 @@ const OrderTable = () => {
                   <TableCell
                     sx={{ fontSize: 12, textAlign: "center" }}
                     align="right"
-                    onClick={() => deleteProd(index)}
+                    onClick={() => deleteProd(items, index)}
                   >
                     <DeleteOutlinedIcon />
                   </TableCell>

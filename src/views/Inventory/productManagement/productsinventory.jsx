@@ -6,25 +6,33 @@ import "./productsinventory.css";
 import { useState } from "react";
 import { createProductInDb } from "../../../db/product";
 import {motion} from 'framer-motion'
+import { createProductInDb, deleteProductFromDb } from "../../../db/product";
 const Productsinventory = () => {
-  const [id, setId] = useState("");
+  const [id, setId] = useState();
   const [barcode, setBarcode] = useState("");
   const [name, setName] = useState("");
   const [costPrice, setCostPrice] = useState(0);
   const [sellPrice, setSellPrice] = useState();
   const [quantity, setQuantity] = useState(0);
   
+  const [delId, setDelId] = useState("");
 
-  function onCreateProduct() {
-    createProductInDb(id, barcode, name, costPrice, sellPrice, quantity).then(
-      (res) => {
-        if (res === true) {
-          alert("Product has been created");
-        } else {
-          alert("error in product creation");
-        }
-      }
+
+  function onCreateProduct(e) {
+    e.preventDefault()
+    createProductInDb({id, barcode, name, costPrice, sellPrice, quantity}).then(res=>{
+      alert(res.message)
+    }
     );
+  }
+  function onDeleteProduct(e, delId){
+    e.preventDefault()
+    deleteProductFromDb({delId}).then(res=>{
+      console.log(res.message)
+      alert(res.message)
+    }
+    );
+
   }
 
   return (
@@ -71,7 +79,7 @@ const Productsinventory = () => {
           marginTop:"40px" ,marginLeft:"120px",
           
           backgroundColor: "blue" }}
-          onClick={onCreateProduct}
+          onClick={(e)=>onCreateProduct(e)}
         >
           <p style={{color:"white"}}>CREATE PRODUCT</p>
           
@@ -87,7 +95,7 @@ const Productsinventory = () => {
           }}
         >
           <Form.Label>enter id of the product you want to delete</Form.Label>
-          <Form.Control />
+          <Form.Control onChange={(e) => setDelId(e.target.value)} />
 
          <motion.button
         whileHover={{ scale:1.3 ,boxShadow: "10px 10px 0 gray"}}
@@ -101,6 +109,7 @@ const Productsinventory = () => {
           
         >
           <p style={{color:"white"}}>DELETE PRODUCT</p>
+           onClick={(e)=>onDeleteProduct(e, delId)}
           
         </motion.button>
         </Form.Group>

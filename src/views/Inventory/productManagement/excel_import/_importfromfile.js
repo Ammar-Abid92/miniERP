@@ -1,59 +1,63 @@
-import {useState} from 'react'
-import {Data} from './data'
+import { useState } from 'react'
+import { Data } from './data'
 import * as XLSX from 'xlsx'
 import './_importfromfile.css'
 import { uploadProductsInDb } from '../../../../db/product';
 import {motion} from 'framer-motion'
 
 function Importfromfile() {
-  
+
   // on change states
-  const [excelFile, setExcelFile]=useState(null);
-  const [excelFileError, setExcelFileError]=useState(null);  
- 
+  const [excelFile, setExcelFile] = useState(null);
+  const [excelFileError, setExcelFileError] = useState(null);
+
   // submit
-  const [excelData, setExcelData]=useState(null);
+  const [excelData, setExcelData] = useState(null);
   // it will contain array of objects
 
   // handle File
-  const fileType=['application/vnd.ms-excel'];
-  const handleFile = (e)=>{
+  const fileType = ['application/vnd.ms-excel'];
+  const handleFile = (e) => {
     let selectedFile = e.target.files[0];
-    if(selectedFile){
+    if (selectedFile) {
       // console.log(selectedFile.type);
-      if(selectedFile&&fileType.includes(selectedFile.type)){
+      if (selectedFile && fileType.includes(selectedFile.type)) {
         let reader = new FileReader();
         reader.readAsArrayBuffer(selectedFile);
-        reader.onload=(e)=>{
+        reader.onload = (e) => {
           setExcelFileError(null);
           setExcelFile(e.target.result);
-        } 
+        }
       }
-      else{
+      else {
         setExcelFileError('Please select only .xls file types');
         setExcelFile(null);
       }
     }
-      console.log('plz select your .xls file');
-    }
-  
+    console.log('plz select your .xls file');
+  }
+
 
   // submit function
-  const handleSubmit=(e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if(excelFile!==null){
-      const workbook = XLSX.read(excelFile,{type:'buffer'});
+    if (excelFile !== null) {
+      const workbook = XLSX.read(excelFile, { type: 'buffer' });
       const worksheetName = workbook.SheetNames[0];
-      const worksheet=workbook.Sheets[worksheetName];
+      const worksheet = workbook.Sheets[worksheetName];
       const data = XLSX.utils.sheet_to_json(worksheet);
-      uploadProductsInDb(data)
+      uploadProductsInDb(data).then(res=>{
+        console.log(res.message)
+        alert(res.message)
+      }
+      );
       setExcelData(data);
     }
-    else{
+    else {
       setExcelData(null);
     }
   }
-  
+
   return (
     <div className="container">
 
@@ -110,8 +114,8 @@ function Importfromfile() {
               </tbody>
             </table>
           </div>
-        )}                    
-                                    
+        )}
+
       </div>
 
     </div>
