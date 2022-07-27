@@ -43,11 +43,9 @@ const Inventory = () => {
           { label: "Managing Screen", href: "/managerSelector" },
         ]}
       />
-      <motion.h1 initial={{  }}
-          animate={{ x: "10%" }}
-          transition={{ duration: 4, loop: Infinity }}
-      className="inventorymanagement" style={{position:"absolute",top:"-3px"}}> INVENTORY MANAGEMENT 
-      </motion.h1>
+      <h1 
+      className="inventorymanagement" > INVENTORY MANAGEMENT 
+      </h1>
 
       <div 
       style={{width: "1150px",
