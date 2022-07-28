@@ -70,11 +70,24 @@ left:567px;
 }
 
 .inputs {
+  position:absolute;
   display: flex;
   flex-direction: column;
-  margin-left: -45%;
+   left:635px;
   width: 50%;
-  margin-top:-2.5px;
+  margin-top:-0.2px;
+  top:330px;
+  
+}
+
+.inputp {
+  position:absolute;
+  display: flex;
+  flex-direction: column;
+   left:635px;
+  width: 50%;
+  margin-top:-43.5px;
+  top:430px;
   
 }
 

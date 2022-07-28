@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { useDispatch } from "react-redux";
 import {motion} from 'framer-motion'
-import './indexsg.css'
+import './index.scss'
 import { signIn } from "../../db/signin";
 // import addUser from "../../Store/actions";
 
@@ -46,11 +46,14 @@ function SignIn() {
               required
               onChange={(e) => setUserName(e.target.value)}
               placeholder="Write username here"
-            />
+            /></div>
+            <div className="inputp">
             <input
               style={{
                 border: "2px solid black",
                 backgroundColor: "whitesmoke",
+               
+                
               }}
               type="password"
               required

@@ -18,8 +18,21 @@ body
   
   height: 400px;
   width:900px;
-  /* //margin-left:31.5%; */
 }
+
+  /* //margin-left:31.5%; */
+
+  .ch{
+top:5px;
+    position:absolute;
+    left:600px;
+   
+    width:100px;
+    height:300px;
+
+
+  }
+
 input {
   background-color: whitesmoke;
   border: 2px solid black;

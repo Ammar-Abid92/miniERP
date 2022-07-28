@@ -3,7 +3,7 @@ import SearchBar from "../../components/searchBarWork/searchBar";
 import Navbar from "../../components/navbar/Navbar";
 import { Grid } from "@mui/material";
 import {motion} from 'framer-motion'
-import './index.css'
+import './index.scss'
 
 import { useState } from "react";
 const POS = () => {
@@ -18,6 +18,9 @@ const POS = () => {
           { label: "Managing Screen", href: "/managerSelector" },
         ]}
       />
+
+<h1 className="t"
+           >POINT OF SALE</h1>
       <Grid container spacing={2}>
         <Grid item xs={6} md={4} >
          <SearchBar/>

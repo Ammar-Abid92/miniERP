@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { register } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
-import "./indexu.css";
+import "./index.scss";
 import { signUp } from "../../db/signup";
 import {motion} from 'framer-motion'
 
@@ -46,7 +46,11 @@ function Signup() {
   return (
     <div>
       <div className="signup">
+
+      
           <h1 className="a">Sign Up Please.........</h1>
+          </div>
+          <div className="ch">
           
           <input
             style={{ position: "absolute", top: "281px" }}
@@ -70,6 +74,7 @@ function Signup() {
             onChange={(e) => setRole(e.target.value)}
             placeholder="Manager Or Cashier"
           />
+          </div>
         
 
           <br />
@@ -96,7 +101,7 @@ function Signup() {
             <b>Already registered? Login here!</b>
           </motion.p>
         </div>
-      </div>
+      
     
   );
 }
