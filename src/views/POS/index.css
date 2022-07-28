@@ -2,7 +2,7 @@
 {
     position:absolute;
     left:670px;
-    top:13px;
+    top:10;
     color:green;
     animation: 
     typing 3.5s steps(40, end);
