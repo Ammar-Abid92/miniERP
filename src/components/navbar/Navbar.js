@@ -20,6 +20,10 @@ const Navbar = (props) => {
           </Button>
         </div>
 
+        <div className="typeEffect">
+          <h1>{props.heading}</h1>
+        </div>
+
         <ButtonGroup className="nav_buttons" size="small">
           <div className="buttons">
             {props.title.map((i) => {

@@ -1,6 +1,7 @@
 import React from 'react'
-import Button from "@material-ui/core/Button";
+// import Button from "@material-ui/core/Button";
 import { useNavigate } from "react-router-dom";
+import { Button, Typography, Stack, TextField } from "@mui/material";
 
 
 function PaymentMethod() {
@@ -8,31 +9,26 @@ function PaymentMethod() {
 
   return (
     <div>
-      <Button
-        color="primary"
-        variant="contained"
-        onClick={() => navigate("/posScreen/paymentMethod/cash")}
-      >
-        Cash
-      </Button>
-    <br/>
-      <Button
-        color="primary"
-        variant="contained"
-        onClick={() => navigate("/posScreen/paymentMethod/payment")}
-      >
-        Credit
-      </Button>
-      <br/>
 
-      <Button
-        color="primary"
-        variant="contained"
-        onClick={() => navigate("/posScreen/paymentMethod/crypto")}
-      >
-        Crypto Coin
-      </Button>
-    </div>
+        <Button
+        sx={{ width: "180px", margin: '6px', height: '100px', border: "2px solid black", position: "absolute", left: "200px" }} variant="contained" color="info" size="small"         onClick={() => navigate("/posScreen/paymentMethod/cash")}
+        > CASH
+        
+        </Button>
+
+
+        <Button 
+        sx={{ width: "180px", margin: '6px', height: '100px', border: "2px solid black", position: "absolute", left: "400px" }} variant="contained" color="info" size="small" onClick={() => navigate("/posScreen/paymentMethod/payment")} > CREDIT
+        </Button>
+
+
+        <Button 
+        sx={{ width: "180px", margin: '6px', height: '100px', border: "2px solid black", position: "absolute", left: "600px" }} variant="contained" color="info" size="small" onClick={() => navigate("/posScreen/paymentMethod/crypto")} >  CRYPTO COIN
+        </Button>
+
+      </div>
+
+
   )
 }
 

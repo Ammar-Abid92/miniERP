@@ -17,7 +17,6 @@ const rootReducer = (state, action) => {
       // for all keys defined in your persistConfig(s)
       storage.removeItem('persist:root')
       // storage.removeItem('persist:otherKey')
-
       return appReducer(undefined, action);
   }
   return appReducer(state, action);

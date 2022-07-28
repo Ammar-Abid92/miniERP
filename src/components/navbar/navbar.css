@@ -15,3 +15,27 @@
   justify-content: flex-end;
   align-items: center;
 }
+.typeEffect
+{
+    display: flex;
+    align-items: center;
+    
+    left:670px;
+    position: absolute;
+    color:rgb(70, 22, 133);
+    animation: 
+    typing 3.5s steps(40, end);
+    overflow: hidden; 
+    white-space: nowrap; 
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width:50% }
+  }
+
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+   
+  } 

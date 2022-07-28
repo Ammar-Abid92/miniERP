@@ -11,9 +11,8 @@ const POS = () => {
   return (
     <div>
 
-<h1 className="t"
-           >POINT OF SALE</h1>
       <Navbar
+        heading="POINT OF SALE"
         title={[
           { label: "Log Out", href: "/login" },
           { label: "Managing Screen", href: "/managerSelector" },

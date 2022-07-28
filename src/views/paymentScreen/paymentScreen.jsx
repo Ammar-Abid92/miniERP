@@ -3,7 +3,8 @@ import Cleave from 'cleave.js/react';
 
 // import 'animate.css';
 import './paymentScreen.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const imageUrls = [
   "https://logos-world.net/wp-content/uploads/2020/04/Visa-Logo.png",
@@ -22,8 +23,10 @@ function PaymentScreen() {
   const [expireYear, setExpireYear] = useState('YYYY');
   const [cardTypeUrl, setCardTypeUrl] = useState('https://logos-world.net/wp-content/uploads/2020/04/Visa-Logo.png');
   // const [flip, setFlip] = useState(null);
+  const navigate = useNavigate()
+  const dispatch = useDispatch();
   
-  const eachOrderData = useSelector((state) => state.pos_order.pos_order[0]);
+  const posOrder = useSelector(state=>state.pos_order.pos_order[0])
   
 
   const handleNum = (e) => {
@@ -67,6 +70,19 @@ function PaymentScreen() {
   const handleExpYear = (e) => {
     setExpireYear(e.target.value);
   }
+
+  function checkout(e){
+    let res = prompt(`Are you sure to pay Rs.${posOrder.totalPrice} through your bank account ?`)
+    console.log("RRR---->", res)
+    if (res === "yes" || res === "Yes" || res === "YES"){
+    e.preventDefault()
+    alert("Thankyou for shopping")
+    dispatch({
+        type:"CLEAR_CACHE"
+    })
+    navigate("/posScreen")
+  }
+}
 
   // cleaveage.js logic 
 
@@ -151,7 +167,7 @@ function PaymentScreen() {
                 </div>
             </div>
 
-            <button>{`Submit payment`}</button>
+            <button onClick={checkout} >{`Submit payment`}</button>
         </form>
     </div>
   );
