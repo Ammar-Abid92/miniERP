@@ -12,7 +12,7 @@ const Navbar = (props) => {
   // const productData = useSelector((state) => state.allDetails);
 
   return (
-    <div>
+    <div className="nav__container">
       <header className="header">
         <div className="title">
           <Button variant="text" color="secondary" size="large" onC>

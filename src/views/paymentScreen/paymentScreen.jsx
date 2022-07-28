@@ -5,6 +5,7 @@ import Cleave from 'cleave.js/react';
 import './paymentScreen.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { createPosOrderInDb } from '../../db/posOrder';
 
 const imageUrls = [
   "https://logos-world.net/wp-content/uploads/2020/04/Visa-Logo.png",
@@ -76,6 +77,11 @@ function PaymentScreen() {
     console.log("RRR---->", res)
     if (res === "yes" || res === "Yes" || res === "YES"){
     e.preventDefault()
+    posOrder.amount_change = 0.0
+    posOrder.payment_method = "CREDIT CARD"
+    posOrder.amount_paid = posOrder.totalPrice
+    createPosOrderInDb(posOrder).then(res=>console.log("lalalala---->",res)).catch(e=>alert(e.message))
+
     alert("Thankyou for shopping")
     dispatch({
         type:"CLEAR_CACHE"

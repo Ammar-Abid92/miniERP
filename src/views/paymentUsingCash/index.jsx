@@ -6,37 +6,34 @@ import { useState } from "react";
 
 import { motion } from 'framer-motion'
 import { useDispatch, useSelector } from "react-redux";
-import { ArrowBackIosNewSharp } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-import { posOrder } from "../../store/actions/posOrder";
-import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+import { createPosOrderInDb } from "../../db/posOrder";
 
 
 export default function PaymentUsingCash() {
     const navigate = useNavigate()
     const dispatch = useDispatch();
 
-
-    const [id, setId] = useState();
-    const [barcode, setBarcode] = useState("");
     const [amountPaid, setAmountPaid] = useState("");
-    const [costPrice, setCostPrice] = useState(0);
-    const [sellPrice, setSellPrice] = useState();
     const [change, setChange] = useState(0);
 
-    const [delId, setDelId] = useState("");
 
-    const posOrder = useSelector(state=>state.pos_order.pos_order[0])
+    const posOrder = useSelector(state => state.pos_order.pos_order[0])
+    function checkout(e) {
+        if (amountPaid >= posOrder.totalPrice) {
+            e.preventDefault()
+            posOrder.amount_change = change
+            posOrder.payment_method = "CASH"
+            posOrder.amount_paid = amountPaid
+            console.log("MY POS ORDER ---->", posOrder)
 
-    function checkout(e){
-        if (amountPaid >=  posOrder.totalPrice){
-        e.preventDefault()
-        alert("Thankyou for shopping")
-        dispatch({
-            type:"CLEAR_CACHE"
-        })
-        navigate("/posScreen")
-    }else{
+            createPosOrderInDb(posOrder).then(res=>console.log("lalalala---->",res)).catch(e=>alert(e.message))
+            alert("Thankyou for shopping")
+            dispatch({
+                type: "CLEAR_CACHE"
+            })
+            navigate("/posScreen")
+        } else {
             e.preventDefault()
             alert("please pay the bill properly")
         }
@@ -53,21 +50,21 @@ export default function PaymentUsingCash() {
                 <Form.Group style={{ marginLeft: "10px", marginRight: "10px" }}>
                     <Form.Label>Bill Amount: </Form.Label>
                     <Form.Control
-                       value={posOrder.totalPrice}
+                        value={posOrder.totalPrice}
                         type="text"
                     />
                 </Form.Group>
                 <Form.Group style={{ marginLeft: "10px", marginRight: "10px" }}>
                     <Form.Label>Item Details</Form.Label>
-                    {posOrder.orderLines.map((x)=>{
-                        return(
-                        <Form.Control
-                        value={x.name + "               " + x.quantity + "              "+ x.quantity*x.sell_price}
-                        type="text"
-                    />
+                    {posOrder.orderLines.map((x) => {
+                        return (
+                            <Form.Control
+                                value={x.name + "               " + x.quantity + "              " + x.quantity * x.sell_price}
+                                type="text"
+                            />
                         )
                     })}
-                    
+
                 </Form.Group>
 
                 <Form.Group style={{ marginLeft: "10px", marginRight: "10px" }}>

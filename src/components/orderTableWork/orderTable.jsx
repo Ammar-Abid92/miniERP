@@ -59,6 +59,9 @@ const OrderTable = () => {
         orderID: productArr[productArr.length - 1].id + 1,
         orderLines: productArr,
         totalPrice: takeTotalPriceValue(),
+        payment_method: "",
+        amount_paid: 0.0,
+        amount_change: 0.0
       },
     ];
     dispatch(posOrder(pos_order))

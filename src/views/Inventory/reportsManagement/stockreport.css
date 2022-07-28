@@ -1,50 +1,49 @@
-.stockborder
-{
-border:1px solid purple;
-
-width:570px;height:50px;
-position:absolute;
-left:513px;
-top:250px;
+.stockreport__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0 0 0;
+    /* height: 100vh; */
+    /* background-color: blueviolet; */
 }
 
-.reportsection
-{
+.stockborder {
+    border: 1px solid purple;
+    width: 570px;
+    height: 50px;
+    position: absolute;
+    left: 513px;
+    top: 250px;
+}
+
+.reportsection {
+
     background-color: lightgrey;
-    border:3px solid purple;
-    width:1520px;height:450px;
-position:absolute;
-left:30px;
-top:330px;
+    border: 3px solid purple;
+    width: 506px;
+    height: 450px;
+    position: absolute;
+    left: 30px;
+    top: 330px;
 
 }
-.stockpurchased
-{
-    border:3px solid black;
-    width:506px;height:450px;
-position:absolute;
-left:30px;
-top:330px;
+
+.stockpurchased {
+    width: 40rem;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+    border: 2px solid black;
+    padding: 2rem;
+
+
 }
-.heading
-{
+
+.heading {
     text-align: center;
-    color:blue;
-   }
-.stocksold
-{
-    border:3px solid black;
-    width:507px;height:450px;
-position:absolute;
-left:536px;
-top:330px;
-}
-
-.netstock
-{border:3px solid black;
-    width:507px;height:450px;
-position:absolute;
-left:1043px;
-top:330px;
-    
+    color: blue;
 }

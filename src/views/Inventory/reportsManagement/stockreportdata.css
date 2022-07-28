@@ -8,3 +8,12 @@
     height:30px;
 
 }
+.stockreportdata__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.stockreportdata__container .button{
+margin: 2rem;
+}

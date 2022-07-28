@@ -34,8 +34,7 @@ const Inventory = () => {
   }
 
   return (
-
-    <div>
+    <>
 
       <Navbar
         heading="INVENTORY MANAGEMENT "
@@ -44,31 +43,25 @@ const Inventory = () => {
           { label: "Managing Screen", href: "/managerSelector" },
         ]}
       />
+    <div className="container__">
+
 
       <div
-        style={{
-          width: "1150px",
-          position: "absolute",
-          top: "130px",
-          height: "270px",
-          left: "300px"
-        }}
+      className="container__buttons"
       >
-
-
         <Button
-          sx={{ width: "180px", margin: '6px', height: '100px', border: "2px solid black", position: "absolute", left: "200px" }} variant="contained" color="info" size="small" onClick={(e) => changingState(e.target.innerText)} > PRODUCTS
+          sx={{ width: "180px", margin: '6px', height: '100px', border: "2px solid black",}} variant="contained" color="info" size="small" onClick={(e) => changingState(e.target.innerText)} > PRODUCTS
 
         </Button>
 
 
         <Button
-          sx={{ width: "180px", margin: '6px', height: '100px', border: "2px solid black", position: "absolute", left: "400px" }} variant="contained" color="info" size="small" onClick={(e) => changingState(e.target.innerText)} > STOCK REPORT
+          sx={{ width: "180px", margin: '6px', height: '100px', border: "2px solid black"}} variant="contained" color="info" size="small" onClick={(e) => changingState(e.target.innerText)} > STOCK REPORT
         </Button>
 
 
         <Button
-          sx={{ width: "180px", margin: '6px', height: '100px', border: "2px solid black", position: "absolute", left: "600px" }} variant="contained" color="info" size="small" onClick={(e) => changingState(e.target.innerText)} >  PRINTER
+          sx={{ width: "180px", margin: '6px', height: '100px', border: "2px solid black" }} variant="contained" color="info" size="small" onClick={(e) => changingState(e.target.innerText)} >  PRINTER
         </Button>
 
       </div>
@@ -92,6 +85,7 @@ const Inventory = () => {
       </div>
 
     </div>
+</>
   );
 };
 export default Inventory;
