@@ -3,6 +3,7 @@ import React from 'react'
 import { useNavigate } from "react-router-dom";
 import { Button, Typography, Stack, TextField } from "@mui/material";
 import './index.scss'
+import Navbar from "../../components/navbar/Navbar";
 
 
 function PaymentMethod() {
@@ -11,6 +12,13 @@ function PaymentMethod() {
   return (
 
     <div>
+    <Navbar
+    heading="PAYMENT SCREEN"
+    title={[
+      { label: "Log Out", href: "/login" },
+      { label: "Managing Screen", href: "/managerSelector" },
+    ]}
+  />
     <h1 className="p">SELECT PAYMENT MODE</h1>
     
 

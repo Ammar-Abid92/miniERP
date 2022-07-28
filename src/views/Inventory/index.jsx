@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 
 import { Button, Typography, Stack, TextField } from "@mui/material";
 import { useState } from "react";
-import './index.css'
+import './index.scss'
 const Inventory = () => {
 
   const [prodManage, setProdManage] = useState(false)
