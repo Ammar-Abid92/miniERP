@@ -7,6 +7,7 @@ import Inventory from "../views/Inventory";
 import PaymentScreen from "../views/paymentScreen/paymentScreen";
 import PaymentMethod from "../views/paymentMethod";
 import PaymentUsingCrypto from "../views/PaymentUsingCrypto";
+import PaymentUsingCash from "../views/paymentUsingCash";
 const Navigator = () => {
   return (
     <BrowserRouter>
@@ -18,6 +19,8 @@ const Navigator = () => {
         <Route path="/managerSelector" element={<ManageSelector />} />
         <Route path="/inventory" element={<Inventory />} />
         <Route path="/posScreen/paymentMethod" element={<PaymentMethod />} />
+        <Route path="/posScreen/paymentMethod/cash" element={<PaymentUsingCash />} />
+
         <Route path="/posScreen/paymentMethod/payment" element={<PaymentScreen />} />
         <Route path="/posScreen/paymentMethod/crypto" element={<PaymentUsingCrypto />} />
 

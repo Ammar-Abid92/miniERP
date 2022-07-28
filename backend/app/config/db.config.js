@@ -1,7 +1,7 @@
 module.exports = {
   HOST: "localhost",
   USER: "ammar",
-  PASSWORD: "marketiq",
+  PASSWORD: "postgres",
   DB: "softsol_erp",
   dialect: "postgres",
   pool: {

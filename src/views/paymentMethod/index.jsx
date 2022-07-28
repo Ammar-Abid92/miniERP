@@ -11,7 +11,7 @@ function PaymentMethod() {
       <Button
         color="primary"
         variant="contained"
-        // onClick={() => navigate("")}
+        onClick={() => navigate("/posScreen/paymentMethod/cash")}
       >
         Cash
       </Button>
