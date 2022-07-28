@@ -62,7 +62,7 @@ export default function PaymentUsingCash() {
                     {posOrder.orderLines.map((x)=>{
                         return(
                         <Form.Control
-                        value={x.name + "               " + x.quantity + "              "+ x.quantity*x.cost_price}
+                        value={x.name + "               " + x.quantity + "              "+ x.quantity*x.sell_price}
                         type="text"
                     />
                         )
