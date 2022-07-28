@@ -2,6 +2,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
+import './index.scss'
 
 
 import { motion } from 'framer-motion'
