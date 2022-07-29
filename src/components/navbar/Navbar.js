@@ -13,29 +13,32 @@ const Navbar = (props) => {
 
   return (
     <div className="nav__container">
-      <header className="header">
+ 
         <div className="title">
-          <Button variant="text" color="secondary" size="large" onC>
+          <Button variant="text" color="secondary" size="large" >
             SoftSol
           </Button>
         </div>
 
-        <div className="typeEffect">
+        <div className="nav__middle">
           <h1>{props.heading}</h1>
         </div>
 
-        <ButtonGroup className="nav_buttons" size="small">
-          <div className="buttons">
-            {props.title.map((i) => {
-              return (
-                <Button variant="outlined" href={i.href} color="primary">
-                  {i.label}
-                </Button>
-              );
-            })}
-          </div>
-        </ButtonGroup>
-      </header>
+        <div>
+
+          <ButtonGroup className="nav_buttons" size="small">
+            <div className="buttons">
+              {props.title.map((i) => {
+                return (
+                  <Button variant="outlined" href={i.href} color="primary">
+                    {i.label}
+                  </Button>
+                );
+              })}
+            </div>
+          </ButtonGroup>
+        </div>
+   
     </div>
   );
 };

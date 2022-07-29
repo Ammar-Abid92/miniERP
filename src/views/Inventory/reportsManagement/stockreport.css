@@ -36,7 +36,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: aquamarine;
+    background-color: white;
     border: 2px solid black;
     padding: 2rem;
 
@@ -45,5 +45,5 @@
 
 .heading {
     text-align: center;
-    color: blue;
+    color: purple;
 }

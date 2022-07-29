@@ -59,9 +59,9 @@ function Importfromfile() {
   }
 
   return (
-    <div className="container">
-
-      {/* upload file section */}
+  
+    <div className="import__container">
+      <h2>Upload Product</h2>
       <div className='form'>
         <form className='form-group' 
           onSubmit={handleSubmit}>
@@ -74,12 +74,12 @@ function Importfromfile() {
           <motion.button className="btn-btn-success"
         whileHover={{ scale:1.3,boxShadow: "10px 10px 0 gray" }}
           
-          type="submit"
-          style={{ width: "150px",
-          height: "30px",
-          marginTop:"40px" ,marginLeft:"120px",
+        type="submit"
+        style={{ width: "150px",
+        height: "30px",
+        marginTop:"40px" ,marginLeft:"120px",
           
-          backgroundColor: "blue" }}
+        backgroundColor: "blue" }}
         
         >
           <p style={{color:"white"}}>SUBMIT</p>
@@ -119,6 +119,7 @@ function Importfromfile() {
       </div>
 
     </div>
+          
   );
 }
 

@@ -1,10 +1,31 @@
+.nav__container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  /* animation-name: typing;
+  animation-duration: 5s;
+  animation-iteration-count:infinite;  */
+}
+.nav__middle{
+  cursor: pointer;
+  padding: 0 0 0 12rem;
+  animation: 
+  typing 3.5s steps(40, end);
+  overflow: hidden; 
+  white-space: nowrap; 
+}
+.nav__middle h1{
+  color: purple;
+}
 .header {
-  background-color:white;
+  /* background-color:white;
   display: flex;
   padding: 8px;
   animation-name: example;
   animation-duration: 5s;
-  animation-iteration-count:infinite;
+  animation-iteration-count:infinite; */
 }
 
 

@@ -5,6 +5,7 @@
 }
 html {
   font-size: 99%;
+  overflow-x: hidden;
   /* background-color: rgb(165, 172, 179); */
 }
 html {
@@ -21,3 +22,4 @@ body {
   padding: 5rem;
   background-color: rgb(233, 233, 233);
 }
+

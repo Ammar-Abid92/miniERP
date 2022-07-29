@@ -20,7 +20,7 @@ export default function PaymentUsingCrypto() {
         getCryptoCoinsInPkr()
     }, [])
 
-    const posOrder = useSelector((state) => state.pos_order.pos_order[0]);
+    const posOrder = useSelector((state) => state.pos_order?.pos_order[0]);
 
     const currencyConverter = (selCoin, total) => {
         let converter = 1/selCoin * total
@@ -29,7 +29,7 @@ export default function PaymentUsingCrypto() {
     }
 
     const getCryptoCoinsInPkr = () => {
-        axios.get("http://api.coinlayer.com/api/live?access_key=b58fbab21aab3d355dd286c561722d33&target=PKR").then(res => setAllCryptoCoins(Object.entries(res.data.rates)))
+        axios.get("http://api.coinlayer.com/api/live?access_key=db5d17b0642c5ad5614baff5587c2e77&target=PKR").then(res => setAllCryptoCoins(Object.entries(res.data.rates)))
     }
     const handleSelect = (event) => {
         setCoin(event.target.value);

@@ -59,7 +59,7 @@ useEffect(() => {
       <div style={{marginLeft:"-2px",display:'flex', flexDirection:'row', flexWrap:"wrap"}} >
         {suggestions?.map((item, index) => (
           <div  key={item.id}>
-            <Button sx={{ width:"180px", margin:'6px', height:'100px'}}  variant="contained" color="info" size="small"  onClick={() => selectedProduct(item, item.quantity=1)}> {item.name} <br/> { `(Quant.) ${item.quantity} (Price) ${item.sell_price}` }
+            <Button sx={{ width:"180px", margin:'6px', height:'100px'}}  variant="contained" color="info" size="small"  onClick={() => selectedProduct(item, item.quantity=1)}> {item.name} <br/> { ` (Price) ${item.sell_price}` }
             </Button>
           </div>
          

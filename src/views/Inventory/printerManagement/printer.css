@@ -1,27 +1,33 @@
 .f1
 {
-    width:1500px;
+    width:1000px;
     border:2px solid black;
     background-color:lightgray;
-    position:absolute;
-    left:50px;
-    top:260px;
-    height:450px;
+    height:400px;
 }
-
+.printer__inputs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 .f2
-{
-    margin-Left:650px;
-    margin-Right:10px;
-    width:200px;
-    margin-top:30px;
 
+{
+    width: 350px;
 }
+
 
 .f3
 {
-    margin-Left:650px;
-    margin-top:10px;
-    width:200px;
-    margin-top:30px;
+  
+    width:350px;
+  
+}
+.printerForm{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }

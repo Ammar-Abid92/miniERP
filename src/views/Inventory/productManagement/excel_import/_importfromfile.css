@@ -1,19 +1,9 @@
-.container
-{
-    height:100px;
-}
-.form
-{
-    height:200px;
-}
-
-.form-group{
-    height:200px;
-}
-
-.table-responsive
-{
-    position:absolute;
-    top:50px;
-    right: 100px;
+.import__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    width: 40rem;
+    height: 600px;
 }

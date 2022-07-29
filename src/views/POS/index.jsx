@@ -18,9 +18,6 @@ const POS = () => {
           { label: "Managing Screen", href: "/managerSelector" },
         ]}
       />
-
-<h1 className="t"
-           >POINT OF SALE</h1>
       <Grid container spacing={2}>
         <Grid item xs={6} md={4} >
          <SearchBar/>

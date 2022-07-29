@@ -10,6 +10,7 @@ module.exports = function (app) {
   });
 
   app.post("/api/createposorder", controller.createPosOrder);
+  app.get("/api/getposorders", controller.getPosOrder);
 
 
 };

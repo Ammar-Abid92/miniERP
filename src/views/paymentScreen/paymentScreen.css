@@ -6,7 +6,7 @@
 }
 
 .container {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;  
   justify-content: center;
   align-items: center;
@@ -14,12 +14,11 @@
   background: #eee;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; 
 }
 
 .container {
   max-width: 1200px;
-  margin: auto;
 }
 
 #form {

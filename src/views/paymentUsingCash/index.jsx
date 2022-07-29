@@ -48,6 +48,7 @@ export default function PaymentUsingCash() {
     return (
         <>
             <Form className="createproduct">
+                <h2>Bill Receipt</h2>
                 <Form.Group style={{ marginLeft: "10px", marginRight: "10px" }}>
                     <Form.Label>Bill Amount: </Form.Label>
                     <Form.Control
